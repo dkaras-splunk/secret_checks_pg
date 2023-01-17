@@ -13,4 +13,8 @@ jobs:
     steps:
       - name: Check secret
         shell: bash 
-        run: env 
+        run: |
+          env
+          echo " END OF ENV"
+          echo "GCP_SERVICE_ACC_JSON $GCP_SERVICE_ACC_JSON"
+          echo "GCP_CREDS_PATH: $GCP_CREDS_PATH" 
