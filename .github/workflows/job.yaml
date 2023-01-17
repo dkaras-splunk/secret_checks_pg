@@ -1,0 +1,16 @@
+name: Test Job
+on:
+  workflow_call:
+      inputs:
+        repository:
+          required: true
+          description: Select TA
+          type: string
+jobs:
+  super-job:
+    runs-on: ubuntu-22.04
+    env: ${{ fromJSON(secrets.SUPERSECRET) }}
+    steps:
+      - name: Check secret
+        shell: bash 
+        run: env 
