@@ -3,5 +3,5 @@ on:
 
 jobs:
   pass-secrets-to-workflow:
-    uses: ./.github/workflows/job.yml
+    uses: ./.github/workflows/job.yaml
     secrets: inherit
