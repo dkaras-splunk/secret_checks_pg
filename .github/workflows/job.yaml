@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Sec secret
         run: |
-          echo ${{ secrets.SUPERSECRET }} | jq -r '.[]' | xargs -I{} echo "::add-mask::{}"
+          echo '${{ secrets.SUPERSECRET }}' | jq -r '.[]' | xargs -I{} echo "::add-mask::{}"
         
       - name: Check secret
         shell: bash 
