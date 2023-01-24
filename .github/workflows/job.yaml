@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Secure secrets
         run: |
-          echo '${{ fromJSON(secrets) }}'
+          gh secret list
         
       - name: Check secret
         shell: bash 
