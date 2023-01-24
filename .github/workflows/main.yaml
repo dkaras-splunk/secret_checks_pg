@@ -4,8 +4,10 @@ on:
 jobs:
   chekc-secrets:
     runs-on: ubuntu-22.04
-    run: |
-      gh secret list
+    steps:
+      - run: |
+          gh secret list
+          
   pass-secrets-to-workflow:
     uses: ./.github/workflows/job.yaml
     secrets: inherit
