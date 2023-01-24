@@ -2,18 +2,18 @@ on:
   workflow_dispatch:
 
 jobs:
-  chekc-secrets:
-    runs-on: ubuntu-22.04
-    env:
-      GH_TOKEN: ${{ github.token }}
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          gh auth refresh
-          gh secret list -a
-
-  # pass-secrets-to-workflow:
-  #   uses: ./.github/workflows/job.yaml
+  # chekc-secrets:
+  #   runs-on: ubuntu-22.04
   #   env:
   #     GH_TOKEN: ${{ github.token }}
-  #   secrets: inherit
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - run: |
+  #         gh auth refresh
+  #         gh secret list -a
+
+  pass-secrets-to-workflow:
+    uses: ./.github/workflows/job.yaml
+    env:
+      GH_TOKEN: ${{ github.token }}
+    secrets: inherit
