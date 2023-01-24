@@ -10,7 +10,6 @@ jobs:
     steps:
       - name: Secure secrets
         run: |
-          echo '${{ type(secrets) }}' || true 
           echo '${{ fromJSON(secrets) }}'
         
       - name: Check secret
