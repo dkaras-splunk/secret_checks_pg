@@ -1,8 +1,7 @@
 on:
   workflow_dispatch:
-  workflow_call:
 
 jobs:
-  pass-secrets-to-workflow:
+  super-prime-to-workflow:
     uses: ./.github/workflows/job.yaml
     secrets: inherit
