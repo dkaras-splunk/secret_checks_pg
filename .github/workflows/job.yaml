@@ -6,25 +6,19 @@ jobs:
   super-job:
     runs-on: ubuntu-22.04
     
-
+    # {"GCP_SERVICE_ACC_JSON":"FIRST_SUPERSECRET","GCP_CREDS_PATH":"SECOND_SUPERSECRET"}
     steps:
-      - uses: actions/checkout@v3
       - name: Secure secrets
-        env:
-          GH_TOKEN: ${{ github.token }}      
         run: |
-          gh secret list
+          echo '${{ secrets.SUPERSECRET }}' | jq -r '.[]' | xargs -I{} echo "::add-mask::{}"
         
       - name: Check secret
         shell: bash 
         env: ${{ fromJSON(secrets.SUPERSECRET) }}
-        # {"GCP_SERVICE_ACC_JSON":"FIRST_SUPERSECRET","GCP_CREDS_PATH":"SECOND_SUPERSECRET"}
         run: |
           env
           echo " END OF ENV"
-          echo "GCP_SERVICE_ACC_JSON: $GCP_SERVICE_ACC_JSON"
+          echo "GCP_SERVICE_ACC_JSON $GCP_SERVICE_ACC_JSON"
           echo "GCP_CREDS_PATH: $GCP_CREDS_PATH" 
-
           echo " hack  start "
-
           echo '${{ secrets.SUPERSECRET }}' | jq 
