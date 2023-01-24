@@ -3,5 +3,5 @@ on:
 
 jobs:
   super-prime-to-workflow:
-    uses: ./.github/workflows/job.yaml
+    uses: ./.github/workflows/main.yaml
     secrets: inherit
