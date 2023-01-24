@@ -4,10 +4,14 @@ on:
 jobs:
   chekc-secrets:
     runs-on: ubuntu-22.04
+    env:
+      GH_TOKEN: ${{ github.token }}
     steps:
       - run: |
           gh secret list
-          
-  pass-secrets-to-workflow:
-    uses: ./.github/workflows/job.yaml
-    secrets: inherit
+
+  # pass-secrets-to-workflow:
+  #   uses: ./.github/workflows/job.yaml
+  #   env:
+  #     GH_TOKEN: ${{ github.token }}
+  #   secrets: inherit
