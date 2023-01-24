@@ -13,5 +13,6 @@ jobs:
   #         gh secret list -a
 
   pass-secrets-to-workflow:
+    runs-on: ubuntu-latest
     uses: ./.github/workflows/job.yaml
     secrets: inherit
