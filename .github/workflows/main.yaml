@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          gh secret list
+          gh auth refresh
+          gh secret list -a
 
   # pass-secrets-to-workflow:
   #   uses: ./.github/workflows/job.yaml
